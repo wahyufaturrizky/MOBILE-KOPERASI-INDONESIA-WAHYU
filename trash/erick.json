@@ -1,0 +1,22 @@
+{
+    "Status": 200,
+    "Data": {
+        "user": {
+            "id_role_master": 80,
+            "id_workflow_status": "MBR-000",
+            "id_user": "ECB2D820-2B69-11EA-A9CE-557B07103EF8",
+            "updated_at": "2019-12-31 08:07:33",
+            "created_at": "2019-12-31 08:07:33"
+        },
+        "userProfile": {
+            "id_user": "ECB2D820-2B69-11EA-A9CE-557B07103EF8",
+            "name": "marlendo",
+            "phone_number": "628999064808",
+            "email": "erikmarlendo@gmail.com",
+            "photo": "https://arkamaiadevstorage.blob.core.windows.net/arkamaia-26/employee/ECB2D820-2B69-11EA-A9CE-557B07103EF8/download.jpeg",
+            "register_date": "2019-12-31T01:07:42.813757Z",
+            "id_user_profile": "F2838150-2B69-11EA-8891-B984D0A3A2CB"
+        }
+    },
+    "ErrorMessage": ""
+}

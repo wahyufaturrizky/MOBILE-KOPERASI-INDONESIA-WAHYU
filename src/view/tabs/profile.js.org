@@ -1,0 +1,200 @@
+import React, { Fragment, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Text, Header, Icon } from 'react-native-elements'
+import {
+  SafeAreaView,
+  ScrollView,
+  View,
+  StatusBar,
+  Image,
+  TouchableOpacity
+} from 'react-native';
+import { Styles, deviceHeight } from '../../styles';
+import { Colors } from '../../styles/colors'
+import { Space } from '../../components/container';
+import { LoadingOverlay } from '../../components/loading';
+import { resValid } from '../../config/validator';
+import { Buttons, HeaderIcon, IconHeader } from '../../components/button';
+import { Nav } from '../../router/navigator';
+import { snackBarError } from '../../components/snackBar';
+import { getStorage } from '../../config/storage';
+
+function Profile(props) {
+
+  const [load, setLoad] = useState(false);
+  const [userData, setUserData] = useState({ name: 'loading', id_koperasi: 'loading' });
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  const getData = async () => {
+    try {
+      let data = await getStorage('user');
+      setUserData(data)
+    } catch (error) {
+      snackBarError(JSON.stringify(error))
+    }
+  }
+
+  const TitleHeder = (props) => {
+    return (
+      <View>
+        <Text h4 style={{
+          color: Colors.light,
+          fontWeight: 'bold'
+        }}>{props.title}</Text>
+        <Text style={{
+          color: Colors.light,
+          fontWeight: 'bold'
+        }}>{props.subTitle}</Text>
+      </View>
+    )
+  }
+
+  const SmallPP = (props) => {
+    return (
+      <View>
+        <Image
+          style={{
+            width: 60,
+            height: 60,
+            backgroundColor: Colors.light,
+            borderRadius: 100,
+          }}
+          source={require('../../assets/images/initial-profile.png')}
+        />
+      </View>
+    )
+  }
+
+  const RightContent = () => {
+    return (
+      <View style={{
+        flex: 1,
+        flexDirection: 'row',
+        paddingTop: 15
+      }}>
+        <Icon
+          raised
+          name='ios-notifications'
+          type={'ionicon'}
+          color={Colors.dark}
+          iconStyle={{
+            fontSize: 30
+          }}
+          size={15}
+          onPress={() => alert('hello')} />
+        <Icon
+          raised
+          name='ios-settings'
+          type={'ionicon'}
+          color={Colors.dark}
+          iconStyle={{
+            fontSize: 30
+          }}
+          size={15}
+          onPress={() => {
+            Nav({ title: 'Personal Settings', page: 'ark.Settings', param: null, ID: props.componentId })
+          }} />
+      </View>
+    )
+  }
+
+  const ProfileMenu = (props) => {
+
+    return (
+      <View style={{
+        marginTop: 5,
+        marginBottom: 5
+      }}>
+        {props.child}
+      </View>
+    )
+  }
+
+  return (
+    <Fragment>
+      <LoadingOverlay loading={load} />
+      <StatusBar barStyle="light-content" />
+      <SafeAreaView>
+        <View style={{
+          marginTop: -26
+        }}>
+          <Header
+            placement='left'
+            leftComponent={<SmallPP />}
+            centerComponent={<TitleHeder title={userData.name} subTitle={userData.id_koperasi} />}
+            rightComponent={<RightContent />}
+            containerStyle={{
+              backgroundColor: Colors.primary,
+              justifyContent: 'space-around',
+              height: 100
+            }}
+          />
+        </View>
+        <ScrollView
+          contentInsetAdjustmentBehavior="always" style={Styles.scrollView}>
+          <Space size={20} />
+          <View style={{
+            flex: 1,
+            flexDirection: 'row',
+            margin: 5
+          }}>
+            <IconHeader
+              onClick={() => {
+                Nav({ title: 'Personal Settings', page: 'ark.Cart', param: null, ID: props.componentId })
+              }}
+              icon={'ios-cart'}
+              color={Colors.dark}
+              text={'My Cart'}
+            />
+            <IconHeader
+              onClick={() => { 
+                Nav({ title: 'My Order', page: 'ark.Order', param: null, ID: props.componentId })
+               }}
+              icon={'ios-wallet'}
+              color={Colors.dark}
+              text={'My Order'}
+            />
+            <IconHeader
+              onClick={() => {
+                Nav({ title: 'My Loan', page: 'ark.Loan', param: {res: dummy}, ID: props.componentId })
+              }}
+              icon={'ios-cash'}
+              color={Colors.dark}
+              text={'My Loan'}
+            />
+          </View>
+          <Space size={20} />
+          <ProfileMenu child={
+            <Buttons text={'Saving'} onClick={() => {
+              Nav({ title: 'My Saving', page: 'ark.Saving', param: {res: dummy}, ID: props.componentId })
+            }} />
+          } />
+          <ProfileMenu child={
+            <Buttons text={'Privacy Policy'} onClick={() => {
+              alert('Privacy')
+            }} />} />
+          <ProfileMenu child={
+            <Buttons text={'Faq'} onClick={() => {
+              alert('Fack')
+            }} />
+          } />
+          <ProfileMenu child={
+            <Buttons text={'About Us'} onClick={() => {
+              alert('About')
+            }} />
+          } />
+        </ScrollView>
+      </SafeAreaView>
+    </Fragment>
+  );
+};
+
+Profile.propTypes = {
+  navigator: PropTypes.object,
+  componentId: PropTypes.string
+}
+
+export default Profile;

@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "176190704716",
+    "firebase_url": "https://arkamaiadev.firebaseio.com",
+    "project_id": "arkamaiadev",
+    "storage_bucket": "arkamaiadev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176190704716:android:ca1c75f17c9beacde678e9",
+        "android_client_info": {
+          "package_name": "com.arkamaia.arkamaia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176190704716-it26sscq1b6tq361sk75bvktqk4a8mj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkVqjjNO9pXWNu6YWpX0NLrcwaJmeUcLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176190704716-it26sscq1b6tq361sk75bvktqk4a8mj7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "176190704716-s7goree5cpjjfgehho4mhtlaocqsubic.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arkamaia.arkamaia"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176190704716:android:570839694cf0ec45e678e9",
+        "android_client_info": {
+          "package_name": "com.koperasiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176190704716-it26sscq1b6tq361sk75bvktqk4a8mj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkVqjjNO9pXWNu6YWpX0NLrcwaJmeUcLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176190704716-it26sscq1b6tq361sk75bvktqk4a8mj7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "176190704716-s7goree5cpjjfgehho4mhtlaocqsubic.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arkamaia.arkamaia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
